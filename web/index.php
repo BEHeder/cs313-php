@@ -1,5 +1,5 @@
 <?php
-
-  phpinfo();
+  echo "<a href='./intro.html'>Introduction Page</a>";
+  
 
 ?>
