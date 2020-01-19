@@ -8,6 +8,6 @@
     echo "<a href='./intro.html'>Introduction Page</a></br>";
     echo "<a href='./assignments.html'>Assignments Page</a>";
     date_default_timezone_set("America/Boise");
-    date("h:i:s a, l, m/d/Y");
+    echo date("h:i:s a, l, m/d/Y");
   ?>
 </body>
