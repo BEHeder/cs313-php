@@ -1,7 +1,9 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
-<head>
+    <head>
 
-</head>
-<body>
-    
-</body>
+    </head>
+    <body>
+        
+    </body>
+</html>
