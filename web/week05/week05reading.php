@@ -25,7 +25,7 @@
     {
         echo 'user: ' . $row['username'];
         echo ' password: ' . $row['password'];
-        echo '<br\>';
+        echo '<br/>';
     }
 
     $statement = $db->query('SELECT username, password FROM note_user');
@@ -36,5 +36,8 @@
 
     $statement = $db->query('SELECT username, password FROM note_user');
     $results = $statement->fetchAll(PDO::FETCH_ASSOC);
-    echo $results['username'];
+    foreach ($results as $row)
+    {
+        echo 'user: ' . $row['username'] . ' password: ' . $row['password'] . '<br/>';
+    }
 ?>
