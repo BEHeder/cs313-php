@@ -36,5 +36,5 @@
 
     $statement = $db->query('SELECT username, password FROM note_user');
     $results = $statement->fetchAll(PDO::FETCH_ASSOC);
-    echo $results;
+    echo $results['username'];
 ?>
