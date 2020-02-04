@@ -1,6 +1,6 @@
 <?php
     require "dbConnect.php";
-    $db = get_db();
+    $db = get_db(); //if the function doesn't return anything, then this could throw a 500 error
 
     $family_members = $db->prepare("SELECT * FROM w5_family_members"); //prepare() helps ensure you have
     $family_members->execute();                                        //proper commands/data...?
@@ -12,7 +12,7 @@
         $relationship_id = $fRow["relationship_id"];
 
         $relationships = $db->prepare("SELECT description FROM w5_relationships WHERE id = $relationship_id");
-        $relationships->execute();
+        $relationships->execute(); //I should probably look up the prepare() and execute() functions for more info...
         while ($rRow = $relationships->fetch(PDO::FETCH_ASSOC))
         {
             $relationship = $rRow["description"];
