@@ -10,8 +10,9 @@ SELECT name FROM  w5_EVENT ORDER BY name LIMIT 1 OFFSET 2;
 \echo '3b. What is the third event when sorted by ID? '
 SELECT name FROM w5_EVENT ORDER BY id LIMIT 1 OFFSET 2;
 
-\echo '4a. List the names alphabetically of all the participants in the ''Toughman Utah'' competition'
---SELECT name FROM w5_PARTICIPANT
+-- \echo '4a. List the names alphabetically of all the participants in the ''Toughman Utah'' competition'
+-- SELECT name
+--     FROM ((INNER JOIN ))
 
 -- \echo '4b. List the names (sorted by id) of all the participants in the ''Kauai Marathon'' competition'
 ---------------- Your code here ----------------
