@@ -29,7 +29,8 @@ CREATE TABLE game
 );
 
 CREATE TABLE wishlist
-( user_id  INT     NOT NULL REFERENCES user(id)
+( id       SERIAL  NOT NULL PRIMARY KEY
+, user_id  INT     NOT NULL REFERENCES user(id)
 , game_id  INT     NOT NULL REFERENCES game(id)
 , is_owned BOOLEAN NOT NULL --this checks whether the user already owns a copy of a certain game
 );
