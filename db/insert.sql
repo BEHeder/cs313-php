@@ -1,9 +1,9 @@
-\echo 'INSERTING INTO user';
-INSERT INTO user (username, password, display_name, is_public)
+\echo 'INSERTING INTO game_user';
+INSERT INTO game_user (username, password, display_name, is_public)
     VALUES ('demo1', '12345', 'John Doe', true);
-INSERT INTO user (username, password, display_name, is_public)
+INSERT INTO game_user (username, password, display_name, is_public)
     VALUES ('demo2', '67890', 'Jane Doe', true);
-INSERT INTO user (username, password, display_name, is_public)
+INSERT INTO game_user (username, password, display_name, is_public)
     VALUES ('demo3', 'silly', 'Jerry Doe', false);
 
 \echo 'INSERTING INTO genre';

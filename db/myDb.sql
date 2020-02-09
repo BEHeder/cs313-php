@@ -1,4 +1,4 @@
-CREATE TABLE user
+CREATE TABLE game_user
 ( id           SERIAL      NOT NULL PRIMARY KEY
 , username     VARCHAR(50) NOT NUll UNIQUE
 , password     VARCHAR(50) NOT NULL
@@ -30,7 +30,7 @@ CREATE TABLE game
 
 CREATE TABLE wishlist
 ( id       SERIAL  NOT NULL PRIMARY KEY
-, user_id  INT     NOT NULL REFERENCES user(id)
+, user_id  INT     NOT NULL REFERENCES game_user(id)
 , game_id  INT     NOT NULL REFERENCES game(id)
 , is_owned BOOLEAN NOT NULL --this checks whether the user already owns a copy of a certain game
 );
