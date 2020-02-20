@@ -1,9 +1,10 @@
 <?php
+    session_start();
     require("../../shared/dbConnect.php");
     $db = get_db();
 
-    $username = $_POST['username'];
-    $passwordHash = password_hash($_POST['password'], PASSWORD_DEFAULT);
+    $username = $_POST['usernameUp'];
+    $passwordHash = password_hash($_POST['passwordUp'], PASSWORD_DEFAULT);
 
     try
     {
