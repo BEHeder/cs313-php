@@ -13,7 +13,7 @@
         <h1>List of Games</h1>
         <ul>
             <?php 
-                require "../../shared/dbConnect.php";
+                require "../shared/dbConnect.php";
                 $db = get_db();
 
                 $games = $db->prepare("SELECT * FROM game");

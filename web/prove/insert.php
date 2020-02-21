@@ -8,7 +8,7 @@ $upLen = $_POST['upLen'];
 $minPly = $_POST['minPly'];
 $maxPly = $_POST['maxPly'];
 
-require("../../shared/dbConnect.php");
+require("../shared/dbConnect.php");
 $db = get_db();
 
 try

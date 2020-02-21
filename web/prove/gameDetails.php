@@ -1,5 +1,5 @@
 <?php 
-    require "../../shared/dbConnect.php";
+    require "../shared/dbConnect.php";
     $db = get_db();
 
     $events = $db->prepare("SELECT * FROM w5_EVENT");
