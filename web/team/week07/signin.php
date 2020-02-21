@@ -11,7 +11,7 @@
     <body>
         <h1>Sign In</h1>
         <p>Need an account? <a href="./signup.php">Sign Up</a></p>
-        <form action="" method="POST">
+        <form action="checkSignIn.php" method="POST">
             Username:</br>
             <input type="text" name="usernameIn" placeholder="Username"></br>
             Password:</br>

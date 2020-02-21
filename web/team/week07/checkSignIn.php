@@ -17,11 +17,9 @@
             $passwordRight = $row['password'];
             if (password_verify($password, $passwordRight))
             {
-
-            }
-            else
-            {
-                
+                $_SESSION["username"] = $username;
+                header("Location: welcome.php");
+                die();
             }
         }
     }

@@ -9,6 +9,16 @@
     <head>
     </head>
     <body>
-        
+        <?php
+            if (isset($_SESSION["username"]))
+            {
+                echo "Welcome $_SESSION['username']";
+            }
+            else
+            {
+                header("Location: signin.php");
+                die();
+            }
+        ?>
     </body>
 </html>
