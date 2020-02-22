@@ -1,4 +1,5 @@
 <?php
+session_start();
 $gName = $_POST['gName'];
 $genre = $_POST['genre'];
 $gType = $_POST['gType'];

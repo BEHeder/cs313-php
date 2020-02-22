@@ -1,24 +1,24 @@
 CREATE TABLE game_user
 ( id           SERIAL      NOT NULL PRIMARY KEY
-, username     VARCHAR(50) NOT NUll UNIQUE
-, password     VARCHAR(50) NOT NULL
-, display_name VARCHAR(50) NOT NULL
+, username     VARCHAR(255) NOT NUll UNIQUE
+, password     VARCHAR(255) NOT NULL
+, display_name VARCHAR(255) NOT NULL
 , is_public    BOOLEAN     NOT NULL --this will indicate whether other users can see this user's list
 );
 
 CREATE TABLE genre
 ( id   SERIAL      NOT NULL PRIMARY KEY
-, name VARCHAR(50) NOT NULL
+, name VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE game_type
 ( id   SERIAL      NOT NULL PRIMARY KEY
-, name VARCHAR(50) NOT NULL
+, name VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE game
 ( id              SERIAL       NOT NULL PRIMARY KEY
-, name            VARCHAR(100) NOT NULL
+, name            VARCHAR(255) NOT NULL
 , genre_id        INT          NOT NULL REFERENCES genre(id)
 , game_type       INT          NOT NULL REFERENCES game_type(id)
 , age_min         INT          NOT NULL CHECK (age_min >= 0)

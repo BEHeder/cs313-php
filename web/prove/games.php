@@ -1,5 +1,12 @@
 <?php
     session_start();
+	require("../shared/dbConnect.php");
+    $db = get_db();
+    if (!isset($_SESSION['username']))
+    {
+        header("Location: ./signIn.php");
+        die();
+    }
     // if (!isset($_SESSION['games'])) {
     //     $_SESSION['games'] = 
     // }
@@ -11,11 +18,9 @@
     </head>
     <body>
         <h1>List of Games</h1>
+        <p><a href="./signOut.php">Sign Out</a></p>
         <ul>
             <?php 
-                require "../shared/dbConnect.php";
-                $db = get_db();
-
                 $games = $db->prepare("SELECT * FROM game");
                 $games->execute();
 
