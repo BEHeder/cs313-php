@@ -1,10 +1,10 @@
 \echo 'INSERTING INTO game_user';
 INSERT INTO game_user (username, password, display_name, is_public)
-    VALUES ('demo1', '12345', 'John Doe', true);
+    VALUES ('johndoe', '$2y$10$51IkRkkUAfzEeEl76ehWAeD50UlgryDqUpZNRX7XS9oSI8kuYX1i2', 'John Doe', true);
 INSERT INTO game_user (username, password, display_name, is_public)
-    VALUES ('demo2', '67890', 'Jane Doe', true);
+    VALUES ('janedoe', '$2y$10$O42LKcU7/uoRvQG6On9lBOccEokUn7AO4qrz4Q3Tf62C7a7.lQAL6', 'Jane Doe', true);
 INSERT INTO game_user (username, password, display_name, is_public)
-    VALUES ('demo3', 'silly', 'Jerry Doe', false);
+    VALUES ('jerrydoe', '$2y$10$6WzVuMgeAz6UhfQsNLnuM.mfjnfKuSNag/jqNkicNm15Seyd8exra', 'Jerry Doe', false);
 
 \echo 'INSERTING INTO genre';
 INSERT INTO genre (name) VALUES ('Strategy');
