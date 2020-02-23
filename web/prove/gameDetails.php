@@ -60,11 +60,11 @@
             echo "# of Players: $playersMin-$playersMax</br>";
         ?>
         <form action="./gameEdit.php" method="POST">
-            <input type="submit" name="edit" value="Edit"
+            <input type="submit" name="edit" value=<?php echo "$gameId";?>
             <?php if ($isElsewhere) {echo "disabled";}?>></br>
         </form>
         <form action="./gameDelete.php" method="POST">
-            <input type="submit" name="delete" value="Delete"
+            <input type="submit" name="delete" value=<?php echo "$gameId";?>
             <?php if ($isElsewhere) {echo "disabled";}?>></br>
         </form>
     </body>
