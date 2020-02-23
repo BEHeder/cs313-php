@@ -13,9 +13,6 @@
    <div class="container" style="margin-top:50px;">
       <div class="form-row">
          <div class="col">
-            Back to <a href="./games.php">Games</a>
-         </div>
-         <div class="col">
             Game Name
          </div>
          <div class="col">
@@ -38,6 +35,9 @@
          </div>
          <div class="col">
             Maximum # of Players
+         </div>
+         <div class="col">
+            Back to <a href="./games.php">Games</a>
          </div>
       </div>
       <form action="./gameInsert.php" method="POST">

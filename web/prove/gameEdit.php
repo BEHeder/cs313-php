@@ -11,6 +11,34 @@
 
     $gameId = $_POST["gameId"];
 
+    if (isset($_POST['editGame']))
+    {
+        $name = $_POST["gName"];
+        $genre_id = $_POST["genre"];
+        $game_type = $_POST["gType"];
+        $age_min = $_POST["age"];
+        $len_lower = $_POST["loLen"];
+        $len_upper = $_POST["upLen"];
+        $num_players_min = $_POST["minPly"];
+        $num_players_max = $_POST["maxPly"];
+    
+        $update = $db->prepare("UPDATE game 
+                                SET name = $name, 
+                                genre_id = $genre_id, 
+                                game_type = $game_type, 
+                                age_min = $age_min, 
+                                len_lower = $len_lower, 
+                                len_upper = $len_upper, 
+                                num_players_min = $num_players_min, 
+                                num_players_max = $num_players_max
+                                WHERE id = :gameId");
+        $update->bindValue(':gameId', $gameId);
+        $update->execute();
+
+        header("Location: ./gameDetails.php?gameId=$gameId");
+        die();
+    }
+
     $game = $db->prepare("SELECT * FROM game WHERE id = :gameId");
     $game->bindValue(':gameId', $gameId);
     $game->execute();
@@ -29,9 +57,6 @@
 <body>
    <div class="container" style="margin-top:50px;">
       <div class="form-row">
-         <div class="col">
-            Back to <a href="./games.php">Games</a>
-         </div>
          <div class="col">
             Game Name
          </div>
@@ -56,6 +81,9 @@
          <div class="col">
             Maximum # of Players
          </div>
+         <div class="col">
+            Back to <a href="./games.php">Games</a>
+         </div>
       </div>
       <form action="./gameInsert.php" method="POST">
          <div class="form-row">
@@ -71,10 +99,8 @@
                      {
                         $id = $row["id"];
                         $genre = $row["name"];
-                        $same = false;
-                        if ($id == $genre_id) {$same = true;}
                         echo "<option value='$id'";
-                        if ($same) {echo " selected";}
+                        if ($id == $genre_id) {echo " selected";}
                         echo ">$genre</option>";
                      }
                   ?>
@@ -89,7 +115,9 @@
                      {
                         $id = $row["id"];
                         $gType = $row["name"];
-                        echo "<option value='$id'>$gType</option>";
+                        echo "<option value='$id'";
+                        if ($id == $game_type) {echo " selected";}
+                        echo ">$gType</option>";
                      }
                   ?>
                </select>
@@ -110,7 +138,7 @@
                <input type="number" class="form-control" value=<?php echo "$playersMax";?> name="maxPly">
             </div>
             <div class="col">
-               <button class="btn btn-primary" type="submit">Edit Game</button>
+               <button class="btn btn-primary" type="submit" name="editGame">Edit Game</button>
             </div>
          </div>
       </form>
