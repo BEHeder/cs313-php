@@ -28,7 +28,7 @@
     $gTypeRow = $gameTypes->fetch();
     $gType = $gTypeRow["name"];
 
-    $gLists = $db->prepare("SELECT * FROM wishlist WHERE game_id = $gameId");
+    $gLists = $db->prepare("SELECT * FROM wishlist WHERE game_id = :gameId");
     $gLists->bindValue(':gameId', $gameId);
     $gLists->execute();
     $count = 0;
