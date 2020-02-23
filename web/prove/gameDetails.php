@@ -31,15 +31,17 @@
     $gLists = $db->prepare("SELECT * FROM wishlist WHERE game_id = :gameId");
     $gLists->bindValue(':gameId', $gameId);
     $gLists->execute();
-    $count = 0;
     $isElsewhere = false;
     while ($row = $gLists->fetch(PDO::FETCH_ASSOC))
     {
-        $count++;
-    }
-    if ($count != 1)
-    {
-        $isElsewhere = true;
+        $userId = $row["user_id"];
+        $users = $db->prepare("SELECT * FROM game_user WHERE id = $userId");
+        $users->execute();
+        $uRow = $users->fetch();
+        if ($uRow["username"] != $_SESSION["username"])
+        {
+            $isElsewhere = true;
+        }
     }
 ?>
 <!DOCTYPE html>
@@ -57,8 +59,8 @@
             echo "Typical Length: $len_lower-$len_upper minutes</br>";
             echo "# of Players: $playersMin-$playersMax</br>";
         ?>
-        <form action="./gameUpdate.php" method="POST">
-            <input type="submit" name="update" value="Update"
+        <form action="./gameEdit.php" method="POST">
+            <input type="submit" name="edit" value="Edit"
             <?php if ($isElsewhere) {echo "disabled";}?>></br>
         </form>
         <form action="./gameDelete.php" method="POST">
