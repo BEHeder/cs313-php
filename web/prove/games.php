@@ -7,12 +7,10 @@
         header("Location: ./signIn.php");
         die();
     }
-    // if (!isset($_SESSION['games'])) {
-    //     $_SESSION['games'] = 
-    // }
 ?>
         <h1>List of Games</h1>
-        <p><a href="./signOut.php">Sign Out</a></p>
+        <a href="./gameAdd.php">Add Game</a></br>
+        <a href="./signOut.php">Sign Out</a></br>
         <ul>
             <?php 
                 $games = $db->prepare("SELECT * FROM game");

@@ -3,10 +3,18 @@
    session_start();
 	require("../shared/dbConnect.php");
 	$db = get_db();
+   if (!isset($_SESSION['username']))
+   {
+       header("Location: ./signIn.php");
+       die();
+   }
 ?>
 <body>
    <div class="container" style="margin-top:50px;">
-      <form action="insert.php" method="POST">
+      <div class="form-row">
+         Back to <a href="./games.php">Games</a>;
+      </div>
+      <form action="./gameInsert.php" method="POST">
          <div class="form-row">
             <div class="col">
                <input type="text" class="form-control" placeholder="Game name" name="gName">

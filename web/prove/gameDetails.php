@@ -37,6 +37,7 @@
     </head>
     <body>
         <h1>Game Details</h1>
+        Back to <a href="./games.php">Games</a></br>;
         <?php
             echo "Name: $name</br>";
             echo "Genre: $genre</br>";
