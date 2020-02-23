@@ -20,7 +20,7 @@
                 {
                     $name = $row["name"];
                     $gameId = $row["id"];
-                    echo "<li><a href='./gameDetails.php/?gameId=$gameId'>$name</a></li>";
+                    echo "<li><a href='./gameDetails.php?gameId=$gameId'>$name</a></li>";
                 }
             ?>
         </ul>
