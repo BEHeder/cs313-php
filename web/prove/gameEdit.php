@@ -85,7 +85,7 @@
             Back to <a href="./games.php">Games</a>
          </div>
       </div>
-      <form action="./gameInsert.php" method="POST">
+      <form action="./gameEdit.php" method="POST">
          <div class="form-row">
             <div class="col">
                <input type="text" class="form-control" value=<?php echo "$name";?> name="gName">
