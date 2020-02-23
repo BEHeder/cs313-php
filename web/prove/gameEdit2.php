@@ -19,16 +19,24 @@
     $num_players_max = $_POST["maxPly"];
 
     $update = $db->prepare("UPDATE game 
-                            SET name = $name, 
-                            genre_id = $genre_id, 
-                            game_type = $game_type, 
-                            age_min = $age_min, 
-                            len_lower = $len_lower, 
-                            len_upper = $len_upper, 
-                            num_players_min = $num_players_min, 
-                            num_players_max = $num_players_max
+                            SET name = :gName, 
+                            genre_id = :genre, 
+                            game_type = :gType, 
+                            age_min = :age, 
+                            len_lower = :loLen, 
+                            len_upper = :upLen, 
+                            num_players_min = :minPly, 
+                            num_players_max = :maxPly
                             WHERE id = :gameId");
     $update->bindValue(':gameId', $gameId);
+	$update->bindValue(':gName', $name);
+	$update->bindValue(':genre', $genre_id);
+	$update->bindValue(':gType', $game_type);
+	$update->bindValue(':age', $age_min);
+	$update->bindValue(':loLen', $len_lower);
+	$update->bindValue(':upLen', $len_upper);
+	$update->bindValue(':minPly', $num_players_min);
+	$update->bindValue(':maxPly', $num_players_max);
     $update->execute();
 
     header("Location: ./gameDetails.php?gameId=$gameId");
