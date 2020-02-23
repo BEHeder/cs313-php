@@ -55,7 +55,7 @@
             <input type="text" name="usernameIn" placeholder="Username"></br>
             Password:</br>
             <input type="password" name="passwordIn" placeholder="Password"></br>
-            <input type="submit" value="Sign In"></br>
+            <input type="submit" name="signIn" value="Sign In"></br>
         </form>
     </body>
 </html>

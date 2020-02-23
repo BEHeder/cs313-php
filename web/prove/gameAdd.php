@@ -12,7 +12,33 @@
 <body>
    <div class="container" style="margin-top:50px;">
       <div class="form-row">
-         Back to <a href="./games.php">Games</a>;
+         <div class="col">
+            Back to <a href="./games.php">Games</a>
+         </div>
+         <div class="col">
+            Game Name
+         </div>
+         <div class="col">
+            Genre
+         </div>
+         <div class="col">
+            Game Type
+         </div>
+         <div class="col">
+            Age Minimum
+         </div>
+         <div class="col">
+            Minimum Typical Length
+         </div>
+         <div class="col">
+            Maximum Typical Length
+         </div>
+         <div class="col">
+            Minimum # of Players
+         </div>
+         <div class="col">
+            Maximum # of Players
+         </div>
       </div>
       <form action="./gameInsert.php" method="POST">
          <div class="form-row">
