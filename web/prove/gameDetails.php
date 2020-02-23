@@ -2,16 +2,48 @@
     session_start();
     require "../shared/dbConnect.php";
     $db = get_db();
+    $gameId = $_GET["gameId"];
 
-    $events = $db->prepare("SELECT * FROM w5_EVENT");
-    $events->execute();
+    $game = $db->prepare("SELECT * FROM game WHERE id = :gameId");
+    $game->bindValue(':gameId', $gameId);
+    $result = $game->execute();
 
-    while ($row = $events->fetch(PDO::FETCH_ASSOC))
+    if ($result)
     {
+        $row = $game->fetch();
         $name = $row["name"];
-        $image = $row["image"];
+        $genre_id = $row["genre_id"];
+        $game_type = $row["game_type"];
+        $age = $row["age_min"];
+        $len_lower = $row["len_lower"];
+        $len_upper = $row["len_upper"];
+        $playersMin = $row["num_players_min"];
+        $playersMax = $row["num_players_max"];
 
-        echo "<p>$name <img src='$image'></p>";
+        $genres = $db->prepare("SELECT * FROM genre WHERE id = $genre_id");
+        $genres->execute();
+        $genreRow = $genres->fetch();
+        $genre = $genreRow["name"];
 
+        $gameTypes = $db->prepare("SELECT * FROM game_type WHERE id = $game_type");
+        $gameTypes->execute();
+        $gTypeRow = $gameTypes->fetch();
+        $gType = $gTypeRow["name"];
     }
 ?>
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+        <h1>Game Details</h1>
+        <?php
+            echo "Name: $name</br>";
+            echo "Genre: $genre</br>";
+            echo "Game Type: $gType</br>";
+            echo "Age Minimum: $age</br>";
+            echo "Typical Length: $len_lower-$len_upper minutes</br>";
+            echo "# of Players: $playersMin-$playersMax</br>";
+        ?>
+    </body>
+</html>

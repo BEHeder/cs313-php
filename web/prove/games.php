@@ -11,12 +11,6 @@
     //     $_SESSION['games'] = 
     // }
 ?>
-<!DOCTYPE html>
-<html>
-    <head>
-
-    </head>
-    <body>
         <h1>List of Games</h1>
         <p><a href="./signOut.php">Sign Out</a></p>
         <ul>
@@ -27,7 +21,8 @@
                 while ($row = $games->fetch(PDO::FETCH_ASSOC))
                 {
                     $name = $row["name"];
-                    echo "<li>$name</li>";
+                    $gameId = $row["id"];
+                    echo "<li><a href='./gameDetails.php/?gameId=$gameId'>$name</a></li>";
                 }
             ?>
         </ul>
